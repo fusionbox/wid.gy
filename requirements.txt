@@ -1,4 +1,4 @@
-widgy
+-e git+git@github.com:fusionbox/django-widgy@5a0dc37f54ae7bb5820171d76269c304c3c5e5e9#egg=widgy-dev
 django-debug-toolbar==0.9.4
 Werkzeug==0.9.4
 django-require==1.0.5
