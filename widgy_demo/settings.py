@@ -67,6 +67,8 @@ INSTALLED_APPS = (
     'django_extensions',
     'argonauts',
 
+    'backupdb',
+
     'demo.demo_widgets',
     'widgy_demo_app',
 )
