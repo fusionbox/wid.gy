@@ -68,6 +68,7 @@ INSTALLED_APPS = (
     'argonauts',
 
     'demo.demo_widgets',
+    'widgy_demo_app',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -156,6 +157,7 @@ ADMIN_MENU_ORDER = [
         'page_builder.Callout',
         'form_builder.Form',
         ('Review queue', 'review_queue.ReviewedVersionCommit'),
+        'filer.Folder',
     )),
 ]
 
