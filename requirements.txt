@@ -1,0 +1,4 @@
+widgy
+django-debug-toolbar==0.9.4
+Werkzeug==0.9.4
+django-require==1.0.5
