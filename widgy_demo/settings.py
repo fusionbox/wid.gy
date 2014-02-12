@@ -181,6 +181,6 @@ TEMPLATE_DIRS = (
 
 # requirejs
 
-REQUIRE_BUILD_PROFILE = 'widgy.build.js'
-REQUIRE_BASE_URL = 'widgy/js'
-STATICFILES_STORAGE = 'require.storage.OptimizedStaticFilesStorage'
+# REQUIRE_BUILD_PROFILE = 'widgy.build.js'
+# REQUIRE_BASE_URL = 'widgy/js'
+# STATICFILES_STORAGE = 'require.storage.OptimizedStaticFilesStorage'
