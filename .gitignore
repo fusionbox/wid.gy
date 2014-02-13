@@ -1,4 +1,5 @@
 static/
+media/
 .env
 *.pyc
 backups/
