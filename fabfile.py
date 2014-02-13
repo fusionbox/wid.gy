@@ -8,6 +8,7 @@ env.roledefs['live'] = ['fusionbox@demo.wid.gy']
 fb_env.virtualenv = 'widgy_demo'
 fb_env.project_name = 'demo.wid'
 fb_env.tld = '.gy'
+fb_env.vassal = 'widgy_demo'
 
 stage = roles('dev')(stage)
 deploy = roles('live')(deploy)
