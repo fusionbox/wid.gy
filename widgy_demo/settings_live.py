@@ -1,6 +1,6 @@
 from .settings import *
 
-TEMPLATE_DEBUG = DEBUG = False
+TEMPLATE_DEBUG = DEBUG = True
 
 ALLOWED_HOSTS = [
     'demo.wid.gy',
