@@ -13,3 +13,5 @@ DATABASES = {
         'USER': 'widgy_demo_user',
     }
 }
+
+FORCE_SCRIPT_NAME = ''
