@@ -66,6 +66,7 @@ INSTALLED_APPS = (
     'debug_toolbar',
     'django_extensions',
     'argonauts',
+    'raven.contrib.django',
 
     'backupdb',
 
@@ -76,6 +77,7 @@ INSTALLED_APPS = (
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'raven.contrib.django.middleware.Sentry404CatchMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -184,3 +186,53 @@ TEMPLATE_DIRS = (
 # REQUIRE_BUILD_PROFILE = 'widgy.build.js'
 # REQUIRE_BASE_URL = 'widgy/js'
 # STATICFILES_STORAGE = 'require.storage.OptimizedStaticFilesStorage'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'root': {
+        'level': 'WARNING',
+        'handlers': ['sentry'],
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+    },
+    'handlers': {
+        'sentry': {
+            'level': 'INFO',
+            'class': 'raven.contrib.django.handlers.SentryHandler',
+            'filters': ['require_debug_false'],
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'level': 'ERROR',
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'raven': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+            'propagate': False,
+        },
+        'sentry.errors': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+            'propagate': False,
+        },
+    },
+}
+
+SENTRY_DSN = None
