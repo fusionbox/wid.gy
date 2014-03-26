@@ -1,1 +1,277 @@
-hello
+<!doctype html>{% load staticfiles compress %}
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+  <title>Widgy by Fusionbox</title>
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400italic,700italic,400,700|Lato:400,900,400italic,900italic' rel='stylesheet' type='text/css'>
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+  {% compress css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/x-scss" href="{% static 'css/widgy.scss' %}">
+  {% endcompress %}
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js" type="text/javascript"></script>
+
+  {% compress js %}
+  <script type="text/javascript" src="{% static 'js/underscore-min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/skrollr.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/widgy.js' %}"></script>
+  {% endcompress %}
+
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link rel="icon" href="{% static 'image/favicon.ico' %}" type="image/x-icon">
+  <link rel="shortcut icon" href="{% static 'image/favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body class="homePage">
+  <div class="adapt" id="skrollr-body">
+
+  <header class="wrapper">
+    <div class="inner">
+      <a class="logo" href="#top">
+        <img class="logo" src="{% static 'image/logo-white.png' %}" alt="" />
+        <img class="frame" src="{% static 'image/logo-frame.png' %}" alt="" />
+        <img class="fill" src="{% static 'image/logo-fill.png' %}" alt="" data-0="top: -800%;" data-end="top: 0%" />
+      </a>
+      <nav>
+        <a href="#getwidgy" class="getWidgy">Get Widgy</a>
+        <a href="#support" class="support">Support</a>
+        <a href="#features" class="features">Features</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="top" id="top">
+    <div class="inner">
+      <div class="text">
+        <h2>The very last CMS framework you will ever need, like ever.</h2>
+        <p>
+          <a class="button left big" href="#">Demo</a>
+          <a class="button right big" href="#getwidgy">Get Widgy</a>
+        </p>
+      </div>
+      <div class="slideshow">
+        <img src="{% static 'image/mac.png' %}" alt="" />
+        <div class="slide">
+          <img src="http://www.placekitten.com/500/400" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro" id="intro">
+    <div class="inner">
+      <a name="intro"></a>
+
+      <div class="bucket">
+        <figure>
+          <img src="{% static 'image/icon-django.gif' %}" alt="" />
+          <figcaption>Familiar</figcaption>
+        </figure>
+        <p>
+          You already know and love Django. We do, too. Widgy is built within your favorite Python envoronment, so you get all the support &amp; benefits from a bustling  developer community.
+        </p>
+      </div>
+      <div class="bucket">
+        <figure>
+          <img src="{% static 'image/icon-open.gif' %}" alt="" />
+          <figcaption>Open</figcaption>
+        </figure>
+        <p>
+          Pop the hood and see what this bad boy can <em>really</em> do. Widgy is 100% open-source, so you can [insert phrase that explains whatever programmers do with open source code]!
+        </p>
+      </div>
+      <div class="bucket">
+        <figure>
+          <img src="{% static 'image/icon-agile.gif' %}" alt="" />
+          <figcaption>Agile</figcaption>
+        </figure>
+        <p>
+          Widgy is all about creating the ideal CMS for your project. Add, remove, or modify widgets lickety-split &mdash; it's all built-in and just begging for you to fiddle with it.
+        </p>
+      </div>
+      <div class="bucket">
+        <figure>
+          <img src="{% static 'image/icon-easy.gif' %}" alt="" />
+          <figcaption>Easy</figcaption>
+        </figure>
+        <p>
+          Tired of explaning how to add a blog post to your 3rd HR staffer this month? Widgy is committed to a simple drag &amp; drop interface that makes updating content easy.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="inner">
+      <h1><a name="features"></a>Widgy Features</h1>
+      <p>Still (somehow) not convinced that Widgy is right for your CMS? Take a look at this impressive table of features compared to the competish. If you're wondering what it can really offer, wonder no more, for the answers lie before ye...</h4>
+      <table>
+        <thead>
+          <tr>
+            <th class="feature">Features</th>
+            <th class="widgy"><span class="bump"></span><div class="logo"><img class="logo" src="{% static 'image/logo-white.png' %}" alt="WIDGY"></div></th>
+            <th class="comp1">Ruby on Rails</th>
+            <th class="comp2">Wordpress</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="feature">
+              <span class="feature">Astronaut Ponies</span>
+              <span class="description">Because space needs more ponies, and Widgy aims to do just that.</span>
+            </td>
+            <td class="widgy"><i class="fa fa-thumbs-o-up"></i></td>
+            <td class="comp1"><i class="fa fa-thumbs-o-down"></i></td>
+            <td class="comp2"><i class="fa fa-thumbs-o-down"></i></td>
+          </tr>
+          <tr>
+            <td class="feature">
+              <span class="feature">Easier Time Travel</span>
+              <span class="description">Improves on Dr. Brown's classic Flux Capacitor to decrease required leap velocity to a mere 8mph.</span>
+            </td>
+            <td class="widgy"><i class="fa fa-thumbs-o-up"></i></td>
+            <td class="comp1"><i class="fa fa-thumbs-o-down"></i></td>
+            <td class="comp2"><i class="fa fa-thumbs-o-down"></i></td>
+          </tr>
+          <tr>
+            <td class="feature">
+              <span class="feature">Wish Granting</span>
+              <span class="description">Well, just one, and only if you get the quarter into Zoltar's mouth.</span>
+            </td>
+            <td class="widgy"><i class="fa fa-thumbs-o-up"></i><span class="bump"></span></td>
+            <td class="comp1"><i class="fa fa-thumbs-o-down"></i></td>
+            <td class="comp2"><i class="fa fa-thumbs-o-down"></i></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Oh, Also:</h2>
+
+      <ul class="features">
+        <li>
+          <span class="feature">Drag &amp; Drop Editor</span>
+          <span class="description">Easily edit complex tree documents.</span>
+        </li>
+        <li>
+          <span class="feature">Page Builder</span>
+              <span class="description">Includes common &amp; advanced widgets for building out web pages without needing to know HTML.</span>
+        </li>
+        <li>
+          <span class="feature">Form Builder</span>
+              <span class="description">Drag &amp; drop to create forms, success emails, or link to Salesforce. Download submissions as a CSV.</span>
+        </li>
+        <li>
+          <span class="feature">Integration with Mezzanine CMS</span>
+              <span class="description">Provides a new Page type for Widgy content instead of a typical TinyMCE.</span>
+        </li>
+        <li>
+          <span class="feature">Review Queue</span>
+              <span class="description">Advanced versioning for Widgy pages. Set file permissions, review changes between versions, schedule publishing, and preview changes.</span>
+        </li>
+        <li>
+          <span class="feature">Django Authentication</span>
+              <span class="description">Integrated with the Django authentication framework. Control which widgets users are able to edit.</span>
+        </li>
+        <li>
+          <span class="feature">ModelField &amp; FormField</span>
+              <span class="description">Add Widgy to any model that you want, even add multiple widgy fields to the same model.</span>
+        </li>
+        <li>
+          <span class="feature">Not Just an HTML Editor</span>
+              <span class="description">Use Widgy to edit any heterogenous tree-structured data!</span>
+        </li>
+        <li>
+          <span class="feature">Widgets are Django Models</span>
+              <span class="description">Just write and model a render template &mdash; widgets can be customized through inheritance.</span>
+        </li>
+        <li>
+          <span class="feature">Widgets are Django ModelForms</span>
+              <span class="description">For most widgets, no addition JavaScript is necessary. Customize functionality by overriding the form.</span>
+        </li>
+        <li>
+          <span class="feature">Widgets are Django Templates</span>
+              <span class="description">To change how a widget renders, just override its template. Presto-blammo!</span>
+        </li>
+        <li>
+          <span class="feature">Widgets are Self-Contained</span>
+              <span class="description">Include custom JavaScript and SCSS files for your widgets.</span>
+        </li>
+        <li>
+          <span class="feature">Links Framework</span>
+              <span class="description">Allow widgets, like Button, to link to any model.</span>
+        </li>
+        <li>
+          <span class="feature">Include your own Django Apps</span>
+              <span class="description">Easily include django apps into the page tree with Plugins (urlconf_include).</span>
+        </li>
+        <li>
+          <span class="feature">Painless Search</span>
+              <span class="description">Integrated with django-haystack.</span>
+        </li>
+        <li>
+          <span class="feature">Super-Powered Compatibility Methods</span>
+              <span class="description">The compatibility framework helps make sure that widgets can only go where they are expected (users can't mess up their site).  Override compatibility for built-in widgets to suit your site's needs.</span>
+        </li>
+        <li>
+          <span class="feature">Optimized Static Assets</span>
+              <span class="description">Integrated with django-require for optimizing the Widgy editor static assets.</span>
+        </li>
+        <li>
+          <span class="feature">Debug Widgy Rendering</span>
+              <span class="description">Widgy provides django-debug-toolbar panels for investigating <em>what's going on</em> with Widgy rendering.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="support" id="support">
+    <div class="inner">
+      <h1><a name="support"></a>Widgy Support</h1>
+      <p>What, you mean it's not <em>completely intuitive?</em> Very well &mdash; here's how to get some help.</p>
+      <p><a href="http://docs.wid.gy/en/latest/">Widgy Documentation</a></p>
+      <p><a href="https://groups.google.com/a/fusionbox.com/forum/#!forum/widgy">Widgy Google Group</a></p>
+    </div>
+  </section>
+
+  <section class="getwidgy" id="getwidgy">
+    <div class="inner">
+      <h1><a name="getwidgy"></a>Get Widgy</h1>
+      <p>What should go here? A link to Github or something? Yes? Okay, thanks team.</p>
+      <p><a href="https://github.com/fusionbox/django-widgy">Django-Widgy on Github</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="inner">
+      <p>
+        &copy;2014 Fusionbox, Inc., a <a href="http://www.fusionbox.com">Denver Web Design/Build Firm</a>. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  </div>
+
+  <script type="text/javascript">
+    /* Skrollr Initialize Call */
+
+    if(!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)){
+      var s = skrollr.init({
+        forceHeight: false,
+        smoothScrollingDuration: 500
+      });
+    }
+
+  </script>
+
+</body>
+</html>
