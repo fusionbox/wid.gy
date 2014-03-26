@@ -1,0 +1,879 @@
+@import "common.scss";
+
+/* Fonts & Colors
+------------------------------------------------------*/
+
+$white10: rgba(255,255,255,0.1);
+$white30: rgba(255,255,255,0.3);
+$white70: rgba(255,255,255,0.7);
+$white90: rgba(255,255,255,0.9);
+
+$black70: rgba(0,0,0,0.7);
+$black50: rgba(0,0,0,0.5);
+$black30: rgba(0,0,0,0.3);
+$black10: rgba(0,0,0,0.1);
+
+$darkgrey: #424242;
+$grey: #969696;
+$lightgrey: #dcdcdc;
+$reallylightgrey: #ededed;
+$almostwhite: #f4f4f4;
+
+$green: #78e3c6;
+$blue: #243854;
+$darkblue: darken($blue,10%);
+$orange: #f26304;
+
+$font-primary: "Lato", "Arial Black", Helvetica, Arial, sans-serif;
+$font-default: "Roboto", Helvetica, Arial, sans-serif;
+$font-mono: monospace;
+
+$width: 960px;
+
+/* Mixins
+------------------------------------------------------*/
+
+@mixin button {
+  @include gradient($lightgrey,$almostwhite);
+  @include rounded(5px);
+  @include shadow($black30,0px,2px,1px);
+  @include text-shadow(white,0px,1px,0px);
+  @include transition;
+  border: 0px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid darken($grey,10%);
+  color: black;
+  display: inline-block;
+  font-family: $font-primary;
+  font-size: 20px;
+  line-height: 20px;
+  height: auto;
+  letter-spacing: 2px;
+  margin: 0px;
+  outline: 0px;
+  padding: 12px 18px;
+  position: relative;
+  top: 0px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: auto;
+  
+  &:hover {
+    @include shadow($black10,0px,6px,8px);
+    background: $almostwhite;
+    position: relative;
+    top: -3px;
+  }
+  
+  &.block {
+    display: block;
+  }
+  
+  &.big {
+    font-size: 24px;
+    line-height: 24px;
+    padding: 18px 24px;
+  }
+}
+
+@mixin delay($time: 0.5s)
+{
+  animation-delay: $time;
+  -o-animation-delay: $time;
+  -ms-animation-delay: $time;
+  -moz-animation-delay: $time;
+  -webkit-animation-delay: $time;
+}
+
+@mixin transform($transformation)
+{
+  transform: #{$transformation};
+  -o-transform: #{$transformation};
+  -ms-transform: #{$transformation};
+  -moz-transform: #{$transformation};
+  -webkit-transform: #{$transformation};
+}
+
+@mixin transform-origin($transformationorigin)
+{
+  transform-origin: #{$transformationorigin};
+  -o-transform-origin: #{$transformationorigin};
+  -ms-transform-origin: #{$transformationorigin};
+  -moz-transform-origin: #{$transformationorigin};
+  -webkit-transform-origin: #{$transformationorigin};
+}
+
+/* Tags
+------------------------------------------------------*/
+
+h1 {
+  color: $darkblue;
+  font-family: $font-primary;
+  font-weight: 900;
+  font-size: 35px;
+  line-height: 40px;
+  margin: 0 0 25px 0;
+  text-transform: uppercase;
+}
+
+h2 {
+  color: $darkblue;
+  font-family: $font-primary;
+  font-weight: 900;
+  font-size: 21px;
+  line-height: 26px;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+}
+
+p {
+  margin: 0 0 15px 0;
+}
+
+a.button, input[type='submit'], button {
+  @include button;
+}
+
+.left { float: left; }
+.right { float: right; }
+
+/* Body
+------------------------------------------------------*/
+
+html, body {
+  background: $blue;
+  color: $darkgrey;
+  font-family: $font-default;
+  font-size: 15px;
+  line-height: 21px;
+}
+
+body {
+  
+  &.bop-it {
+    
+    header {
+      @include shadow($black50,0px,1px,5px);
+      
+      a.logo {
+        height: 33px;
+        top: 20px;
+        width: 90px;
+      }
+      
+      nav {
+        a {
+          padding-top: 28px;
+          padding-bottom: 28px;
+        }
+      }
+    }
+  }
+}
+
+/* Logo
+------------------------------------------------------*/
+
+a.logo,
+div.logo {
+  @include transition(all 0.5s ease 0s);
+  background: $blue;
+  color: white;
+  display: inline-block;
+  float: none;
+  font-family: $font-primary;
+  font-weight: bold;
+  font-size: 30px;
+  height: 67px;
+  letter-spacing: 7px;
+  line-height: 30px;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 184px;
+  
+  > img {
+    @include transition(all 0.5s ease 0s);
+    display: block;
+    height: auto;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    
+    &.logo {
+      z-index: 20;
+    }
+    
+    &.frame {
+      z-index: 15;
+    }
+    
+    &.fill {
+      z-index: 10;
+    }
+  }
+}
+
+/* Header
+------------------------------------------------------*/
+
+header {
+  @include shadow(transparent,0px,1px,5px);
+  @include transition(all 0.5s ease 0s);
+  background: $blue;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 3000;
+  
+  div.inner {
+    @include clearfix;
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: $width;
+    padding: 0px 40px;
+    position: relative;
+  }
+  
+  a.logo {
+    left: 40px;
+    position: absolute;
+    top: 30px;
+    z-index: 3000;
+  }
+  
+  nav {
+    display: inline;
+    float: right;
+    position: relative;
+    right: -60px;
+    text-align: right;
+    
+    a {
+      @include transition(all 0.5s ease 0s);
+      color: white;
+      display: inline;
+      font-family: $font-primary;
+      font-weight: bold;
+      float: right;
+      padding: 55px 48px;
+      text-decoration: none;
+      text-transform: uppercase;
+      
+      &:hover,
+      &.here {
+        background: lighten($blue,10%);
+        color: white;
+        padding: 55px 58px;
+      }
+    }
+  }
+}
+
+/* All Sections
+------------------------------------------------------*/
+
+body div.adapt > section, {
+  div.inner {
+    @include clearfix;
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: $width;
+    padding: 50px 40px;
+  }
+}
+
+/* Top
+------------------------------------------------------*/
+
+section.top {
+  background: $green url('/static/image/bg.jpg');
+  height: 400px;
+  padding-top: 120px;
+  
+  div.text {
+    float: left;
+    margin-top: 90px;
+    text-align: center;
+    width: 350px;
+  }
+  
+  div.slideshow {
+    float: right;
+    height: 359px;
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    width: 450px;
+    
+    > img {
+      left: 0px;
+      position: absolute;
+      top: 0px;
+      z-index: 2000;
+    }
+    
+    div.slide {
+      padding: 16px 0 0 17px;
+      height: 235px;
+      width: 416px;
+      
+      > img {
+        display: block;
+        height: 235px;
+        width: 416px;
+      }
+    }
+  }
+}
+
+
+/* Intro
+------------------------------------------------------*/
+
+section.intro {
+  background: white;
+  
+  div.bucket {
+    padding: 0 2%;
+    width: 21%;
+  }
+}
+
+
+
+/* Features
+------------------------------------------------------*/
+
+section.features {
+  background: $blue;
+  
+  h1, h2 {
+    color: white;
+  }
+  
+  p {
+    color: white;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+  
+  ul.features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    li {
+      color: white;
+      display: inline;
+      float: left;
+      height: auto;
+      margin: 0;
+      padding: 10px 0 10px 4%;
+      position: relative;
+      width: 29%;
+      
+      &:before {
+        content: "\f00c";
+        color: $green;
+        font-family: FontAwesome;
+        left: 5px;
+        position: absolute;
+        top: 10px;
+        z-index: 2;
+      }
+      
+      span.feature {
+        cursor: help;
+        text-decoration: underline;
+    
+        &:hover {
+          color: $green;
+          text-decoration: none;
+          
+          + span.description {
+            max-height: 200px;
+            opacity: 1;
+            padding: 12px 20px;
+            overflow: visible;
+          }
+        }
+      }
+        
+      span.description {
+        @include multi-shadow("rgba(0,0,0,0.25) 3px 3px 9px");
+        @include rounded(3px);
+        @include transition;
+        background: darken($lightgrey,5%);
+        color: darken($grey,10%);
+        display: block;
+        font-style: italic;
+        left: 37px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        padding: 0px;
+        position: absolute;
+        top: 40px;
+        z-index: 3;
+        width: 85%;
+      }
+    }
+  }
+}
+
+
+
+/* Community
+------------------------------------------------------*/
+
+section.community {
+  background: $reallylightgrey;
+}
+
+
+
+/* Support
+------------------------------------------------------*/
+
+section.support {
+  background: $lightgrey;
+}
+
+
+/* Get Widgy
+------------------------------------------------------*/
+
+section.getwidgy {
+  background: $reallylightgrey;
+}
+
+/* Buckets
+------------------------------------------------------*/
+
+div.bucket {
+  @include default;
+  
+  figure {
+    @include default;
+    margin: 0 0 20px 0;
+    
+    > img {
+      @include rounded(200px);
+      display: block;
+      height: auto;
+      margin: 0 auto 25px auto;
+      max-width: 202px;
+      width: 100%;
+    }
+    
+    figcaption {
+      color: black;
+      display: block;
+      font-family: $font-primary;
+      font-weight: 900;
+      font-size: 20px;
+      line-height: 20px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+  
+  p {
+    text-align: justify;
+  }
+}
+
+
+/* Table
+------------------------------------------------------*/
+
+table {
+  margin: 0 0 50px 0;
+  
+  th, td {
+    padding: 15px 25px;
+    vertical-align: middle;
+  }
+  
+  thead {
+    th {
+      background: white;
+      font-weight: normal;
+      font-size: 20px;
+      padding: 25px 25px;
+      
+      &:first-child {
+        @include rounded(3px 0 0 0);
+        text-align: left;
+      }
+      
+      &:last-child {
+        @include rounded(0 3px 0 0);
+      }
+      
+      &.widgy {
+        background: $green;
+        position: relative;
+        text-align: center;
+        
+        div.logo {
+          background: $orange;
+          border: 4px solid white;
+          margin: 0 auto;
+          height: 49px;
+          width: 134px;
+        }
+        
+        span.bump {
+          @include rounded(5px 5px 0px 0px);
+          background: $green;
+          position: absolute;
+          height: 10px;
+          left: 0px;
+          top: -10px;
+          width: 100%;
+        }
+      }
+    }
+  }
+  
+  tbody {
+    td {
+      background: $lightgrey;
+      border-bottom: 1px solid darken($lightgrey,10%);
+      color: $darkgrey;
+      text-align: center;
+      
+      &.widgy {
+        background: $green;
+        border-bottom: 1px solid darken($green,15%);
+        position: relative;
+        
+        span.bump {
+          @include rounded(0px 0px 5px 5px);
+          background: $green;
+          position: absolute;
+          height: 10px;
+          left: 0px;
+          bottom: -10px;
+          width: 100%;
+        }
+      }
+      
+      &:first-child {
+        text-align: left;
+      }
+      
+      &.feature {
+        position: relative;
+      
+        span.feature {
+          //cursor: help;
+          //text-decoration: underline;
+          
+          + span.description {
+            @include multi-shadow("inset rgba(0,0,0,0.2) 0px 0px 9px");
+            @include transition;
+            background: darken($lightgrey,5%);
+            color: darken($grey,10%);
+            display: block;
+            font-style: italic;
+            left: -960px;
+            opacity: 0;
+            padding: 0;
+            padding: 16px 25px;
+            position: absolute;
+            top: 51px;
+            overflow: hidden;
+            z-index: 50;
+            width: 910px;
+          }
+        }
+    
+        span.feature:hover {
+          /*
+          + span.description {
+            left: 0px;
+            opacity: 1;
+          }
+          */
+        }
+      }
+    }
+    
+    tr:last-child {
+      td {
+        border: 0px;
+      }
+      td:first-child {
+        @include rounded(0 0 0 3px);
+      }
+      td:last-child {
+        @include rounded(0 0 3px 0);
+      }
+    }
+  }
+}
+
+
+/* Footer
+------------------------------------------------------*/
+
+footer {
+  background: transparent;
+  color: white;
+  text-align: center;
+  
+  div.inner {
+    @include clearfix;
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: $width;
+    padding: 25px 40px;
+    
+    a {
+      @include transition;
+      color: white;
+      text-decoration: none;
+      
+      &:hover {
+        border-bottom: dashed 1px white;
+      }
+    }
+  }
+}
+
+
+
+
+/* Responsive: All Responsive Designs
+------------------------------------------------------*/
+
+@media screen and (max-width: 959px) {  
+  
+  .wrapper {
+    margin: 0;
+    min-width: 0;
+    width: 100%;
+  }
+  
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+      background-color: rgba(57,57,57, .6);
+      border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      background-color: rgba(156, 156, 156, .6);
+  }
+} 
+
+/* Responsive
+------------------------------------------------------*/
+
+@media screen and (max-width: 900px) {
+  section.top {
+    div.text {
+      display: block;
+      float: none;
+      margin: 99px auto 0 auto;
+      max-width: 350px;
+      width: auto;
+    }
+    div.slideshow {
+      display: none;
+    }
+  }
+}
+
+/* Responsive: Medium Screens
+------------------------------------------------------*/
+
+@media screen and (min-width: 481px) and (max-width: 740px) {
+  header {
+    nav {
+      right: -40px;
+      
+      a {
+        padding-left: 18px;
+        padding-right: 18px;
+        
+        &:hover,
+        &.here {
+          padding-left: 23px;
+          padding-right: 23px;
+        }
+        
+        &.features {
+          display: none;
+        }
+      }
+    }
+  }
+  
+  section.intro {
+    div.bucket {
+      width: 46%;
+      
+      &:nth-child(2n) {
+        clear: left;
+      }
+    }
+  }
+  
+  section.features {
+    ul.features {
+      li {
+        padding-left: 10%;
+        width: 40%;
+      }
+    }
+    
+    table {
+      thead {
+        th {
+          font-size: 16px;
+          
+          &:nth-child(3) {
+            @include rounded(0 3px 0 0);
+          }
+          
+          &.widgy {
+            div.logo {
+              height: 27px;
+              width: 74px;
+            }
+          }
+        }
+      }
+      
+      tbody {
+        tr:last-child {
+          td {
+            border: 0px;
+          }
+          td:first-child {
+            @include rounded(0 0 0 3px);
+          }
+          td:nth-child(3) {
+            @include rounded(0 0 3px 0);
+          }
+        }
+      }
+      .comp2 {
+        display: none !important;
+      }
+    }
+  }
+}
+
+
+/* Responsive: Mobile Screens
+------------------------------------------------------*/
+
+@media screen and (max-width: 480px) {
+  header {
+  
+    a.logo {
+      display: block;
+      left: 0px !important;
+      margin: 20px auto;
+      height: 33px;
+      position: relative;
+      top: 0px !important;
+      width: 90px;
+    }
+    
+    nav {
+      display: none;
+      // right: -40px;
+      
+      a {
+        padding-top: 28px;
+        padding-bottom: 28px;
+        padding-left: 18px;
+        padding-right: 18px;
+        
+        &:hover,
+        &.here {
+          padding-left: 23px;
+          padding-right: 23px;
+        }
+        
+        &:not(.getWidgy) {
+          display: none;
+        }
+      }
+    }
+  }
+  
+  section.top {
+    padding: 0 0 50px 0;
+    
+    div.text {
+      
+      a.button.big {
+        display: block;
+        float: none;
+        margin: 0 0 10px 0;
+        font-size: 19px;
+      }
+      
+    }
+  }
+  
+  section.intro {
+    div.bucket {
+      clear: both;
+      width: 100%;
+    }
+  }
+  
+  section.features {
+    ul.features {
+      li {
+        padding-left: 10%;
+        width: 90%;
+      }
+    }
+    
+    table {
+      thead {
+        th {
+          &:first-child {
+            @include rounded(3px 3px 0 0);
+          }
+        }
+      }
+      
+      tbody {
+        tr:last-child {
+          td {
+            border: 0px;
+          }
+          td:first-child {
+            @include rounded(0 0 3px 3px);
+          }
+        }
+      }
+      .widgy, .comp1, .comp2 {
+        display: none !important;
+      }
+    }
+  }
+}

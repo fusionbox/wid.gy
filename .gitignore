@@ -3,3 +3,4 @@ media/
 .env
 *.pyc
 backups/
+db.sqlite3
