@@ -6,3 +6,4 @@ django-dotenv==1.2
 fusionbox-fabric-helpers
 psycopg2
 raven==4.0.4
+django-subdomains==2.0.4
