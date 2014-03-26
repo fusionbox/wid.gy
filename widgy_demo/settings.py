@@ -72,11 +72,13 @@ INSTALLED_APPS = (
 
     'demo.demo_widgets',
     'widgy_demo_app',
+    'marketing',
 )
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'subdomains.middleware.SubdomainURLRoutingMiddleware',
     'raven.contrib.django.middleware.Sentry404CatchMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -100,6 +102,12 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 ROOT_URLCONF = 'widgy_demo.urls'
+
+SUBDOMAIN_URLCONFS = {
+    None: 'marketing.urls',
+    'www': 'marketing.urls',
+    'demo': 'widgy_demo.urls',
+}
 
 WSGI_APPLICATION = 'widgy_demo.wsgi.application'
 
