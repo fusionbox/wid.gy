@@ -147,7 +147,6 @@ STATICFILES_FINDERS = (
 )
 
 COMPRESS_ENABLED = True
-WIDGY_ROOT = imp.find_module('widgy')[1]
 
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_pyscss.compressor.DjangoScssFilter'),
@@ -177,8 +176,9 @@ ADMIN_MENU_ORDER = [
 ]
 
 # Widgy
-
+WIDGY_ROOT = imp.find_module('widgy')[1]
 WIDGY_MEZZANINE_SITE = 'widgy_demo.widgy_site.site'
+DAISYDIFF_JAR_PATH = os.path.join(WIDGY_ROOT, '..', 'bin', 'daisydiff', 'daisydiff.jar')
 
 
 # Copy stuff over from django-widgy/demo
