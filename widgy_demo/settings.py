@@ -127,8 +127,8 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
-USE_I18N = True
-USE_L10N = True
+USE_I18N = False
+USE_L10N = False
 USE_TZ = True
 
 
@@ -147,19 +147,9 @@ STATICFILES_FINDERS = (
 )
 
 COMPRESS_ENABLED = True
-WIDGY_ROOT = imp.find_module('widgy')[1]
-SCSS_IMPORTS = (
-    os.path.join(WIDGY_ROOT, 'static', 'widgy', 'css'),
-)
 
-# COMPRESS_PRECOMPILERS = (
-#     ('text/x-scss', 'django_pyscss.compressor.DjangoScssFilter'),
-# )
 COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', 'python -mscss.tool --no-compress'
-                    ' --load-path={load_paths}'.format(
-                        load_paths=','.join(['"%s"' % d for d in SCSS_IMPORTS]),
-                    )),
+    ('text/x-scss', 'django_pyscss.compressor.DjangoScssFilter'),
 )
 
 # Mezzanine
@@ -186,8 +176,9 @@ ADMIN_MENU_ORDER = [
 ]
 
 # Widgy
-
+WIDGY_ROOT = imp.find_module('widgy')[1]
 WIDGY_MEZZANINE_SITE = 'widgy_demo.widgy_site.site'
+DAISYDIFF_JAR_PATH = os.path.join(WIDGY_ROOT, '..', 'bin', 'daisydiff', 'daisydiff.jar')
 
 
 # Copy stuff over from django-widgy/demo
