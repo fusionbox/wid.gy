@@ -148,18 +148,9 @@ STATICFILES_FINDERS = (
 
 COMPRESS_ENABLED = True
 WIDGY_ROOT = imp.find_module('widgy')[1]
-SCSS_IMPORTS = (
-    os.path.join(WIDGY_ROOT, 'static', 'widgy', 'css'),
-)
 
-# COMPRESS_PRECOMPILERS = (
-#     ('text/x-scss', 'django_pyscss.compressor.DjangoScssFilter'),
-# )
 COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', 'python -mscss.tool --no-compress'
-                    ' --load-path={load_paths}'.format(
-                        load_paths=','.join(['"%s"' % d for d in SCSS_IMPORTS]),
-                    )),
+    ('text/x-scss', 'django_pyscss.compressor.DjangoScssFilter'),
 )
 
 # Mezzanine
