@@ -499,6 +499,7 @@ div.bucket {
 
 table {
   margin: 0 0 50px 0;
+  width: 100%;
   
   th, td {
     padding: 15px 25px;
@@ -522,7 +523,7 @@ table {
       }
       
       &.widgy {
-        background: $green;
+        background: $green url('/static/image/bg.jpg');
         position: relative;
         text-align: center;
         
@@ -536,7 +537,7 @@ table {
         
         span.bump {
           @include rounded(5px 5px 0px 0px);
-          background: $green;
+          background: $green url('/static/image/bg.jpg');
           position: absolute;
           height: 10px;
           left: 0px;
@@ -555,13 +556,13 @@ table {
       text-align: center;
       
       &.widgy {
-        background: $green;
+        background: $green url('/static/image/bg.jpg');
         border-bottom: 1px solid darken($green,15%);
         position: relative;
         
         span.bump {
           @include rounded(0px 0px 5px 5px);
-          background: $green;
+          background: $green url('/static/image/bg.jpg');
           position: absolute;
           height: 10px;
           left: 0px;
