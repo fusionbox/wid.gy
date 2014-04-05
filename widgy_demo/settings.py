@@ -161,7 +161,7 @@ TESTING = False
 GRAPPELLI_INSTALLED = True
 SITE_ID = 1
 
-ADD_MENU_ORDER = (
+ADD_PAGE_ORDER = (
     'widgy_mezzanine.WidgyPage',
 )
 
