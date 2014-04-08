@@ -51,18 +51,24 @@
 
   <section class="top" id="top">
     <div class="inner">
+      <img class="pycon" src="{% static 'image/pycon-badge.png' %}" alt="PyCon Booth #302" /> 
       <div class="text">
         <h2>The very last CMS framework you will ever need, like ever.</h2>
         <p>
-          <a class="button left big" href="//demo.wid.gy/">Demo</a>
-          <a class="button right big" href="#getwidgy">Get Widgy</a>
+          <img src="{% static 'image/python.png' %}" alt="Python" />
+          <img src="{% static 'image/django.png' %}" alt="Django" />
+        </p>
+        <p>
+          <!--a class="button  " href="//demo.wid.gy/">Demo</a-->
+          <a class="button  " href="#getwidgy">Get Widgy</a>
         </p>
       </div>
       <div class="slideshow">
-        <img src="{% static 'image/mac.png' %}" alt="" />
         <div class="slide">
-          <img src="http://www.placekitten.com/500/400" alt="">
+          <img src="{% static 'image/screenshot-small.jpg' %}" alt="Widgy Screenshot" />
         </div>
+        <a class="button orange" href="//demo.wid.gy/">Try the Demo</a>
+        <!--img src="{% static 'image/mac2.png' %}" alt="" /-->
       </div>
     </div>
   </section>
@@ -111,10 +117,46 @@
     </div>
   </section>
 
+  <section class="clients" id="clients">
+    <div class="inner">
+      <h1><a name="clients"></a>Sites Using Widgy</h1>
+      
+      <div>
+      <span class="client">
+        <img src="{% static 'image/habitat.png' %}" alt="Habitat" />
+      </span>
+      <span class="client">
+        <img src="{% static 'image/retul.png' %}" alt="Ret&uuml;l" />
+      </span>
+      <span class="client">
+        <img src="{% static 'image/boysandgirls.png' %}" alt="Boys &amp; Girls Club" />
+      </span>
+      <span class="client">
+        <img src="{% static 'image/lighthouse.png' %}" alt="Lighthouse Solar" />
+      </span>
+      <span class="client">
+        <img src="{% static 'image/nasafcu.png' %}" alt="Nasa Federal Credit Union" />
+      </span>
+      </div>
+      
+    </div>
+  </section>
+
   <section class="features" id="features">
     <div class="inner">
       <h1><a name="features"></a>Widgy Features</h1>
       <p>Still (somehow) not convinced that Widgy is right for your CMS? Take a look at this impressive table of features compared to the competish. If you're wondering what it can really offer, wonder no more, for the answers lie before ye...</h4>
+      
+      <div class="screenshots">
+      <div class="screenshot">
+        <img src="{% static 'image/feature-drag-drop.jpg' %}" alt="" />
+      </div>
+      <div class="screenshot">
+        <img src="{% static 'image/feature-tree.jpg' %}" alt="" />
+      </div>
+      </div>
+      
+      {% comment %}
       <table>
         <thead>
           <tr>
@@ -154,6 +196,7 @@
           </tr>
         </tbody>
       </table>
+      {% endcomment %}
 
       <h2>Oh, Also:</h2>
 
@@ -238,8 +281,10 @@
     <div class="inner">
       <h1><a name="support"></a>Widgy Support</h1>
       <p>What, you mean it's not <em>completely intuitive?</em> Very well &mdash; here's how to get some help.</p>
-      <p><a href="http://docs.wid.gy/en/latest/">Widgy Documentation</a></p>
-      <p><a href="https://groups.google.com/a/fusionbox.com/forum/#!forum/widgy">Widgy Google Group</a></p>
+      <p>
+        <a href="http://docs.wid.gy/en/latest/" class="button"><i class="fa fa-file-text-o"></i> Widgy Documentation</a>
+        <a href="https://groups.google.com/a/fusionbox.com/forum/#!forum/widgy" class="button"><i class="fa fa-google-plus"></i> Widgy Google Group</a>
+      </p>
     </div>
   </section>
 
@@ -247,14 +292,25 @@
     <div class="inner">
       <h1><a name="getwidgy"></a>Get Widgy</h1>
       <p>What should go here? A link to Github or something? Yes? Okay, thanks team.</p>
-      <p><a href="https://github.com/fusionbox/django-widgy">Django-Widgy on Github</a></p>
+      <p><code>$ pip install widgy</code></p>
+      <p>or</p>
+      <p><a href="https://github.com/fusionbox/django-widgy" class="button"><i class="fa fa-github-alt"></i> Django-Widgy on Github</a></p>
+      
+      <figure>
+        <img src="{% static 'image/fusionbox.png' %}" alt="Fusionbox" />
+        <figcaption>
+          <p>Widgy is brought to you by <strong>Fusionbox</strong>, a Denver Web Design/Build Firm</p>
+          <a class="button block small orange" href="http://www.fusionbox.com/contact/">Contact Fusionbox</a>
+        </figcaption>
+      </figure>
+      
     </div>
   </section>
 
   <footer>
     <div class="inner">
       <p>
-        &copy;2014 Fusionbox, Inc., a <a href="http://www.fusionbox.com">Denver Web Design/Build Firm</a>. All rights reserved.
+        &copy;2014 Fusionbox, Inc.  All rights reserved.
       </p>
     </div>
   </footer>
