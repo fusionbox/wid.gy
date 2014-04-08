@@ -313,8 +313,10 @@ body div.adapt > section {
 ------------------------------------------------------*/
 
 section.message {
+  @include transition(all 0.5s ease 0.5s);
   background: $orange;
   color: white;
+  left: 0px;
   max-height: 0px;
   overflow: hidden;
   padding: 100px 0 10px 0;
@@ -322,7 +324,6 @@ section.message {
   top: 0px;
   width: 100%;
   z-index: 2;
-  @include transition(all 0.5s ease 0.5s);
   
   .inner {
     font-family: $font-primary;
@@ -333,11 +334,20 @@ section.message {
   }
 }
 
+div.adapt {
+  @include transition(all 0.5s ease 0.5s);
+  left: 0px;
+  position: relative;
+  top: 0px;
+}
+
 body.loaded {
+  div.adapt {
+    top: 41px;
+  }
   section.message {
     max-height: 1000px;
     overflow: visible;
-    top: 41px;
   }
 }
 
@@ -347,8 +357,8 @@ body.loaded {
 section.top {
   background: $green url('/static/image/bg.jpg');
   height: 350px;
-  padding-top: 20px;
   position: relative;
+  top: 0px;
   
   div.inner {
     padding: 20px 40px 35px 40px !important;
