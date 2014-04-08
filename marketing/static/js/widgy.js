@@ -2,6 +2,11 @@ $(document).ready(function(){
 
 
   //|
+  //| Message Slide-Down
+  //|
+  $("body").addClass("loaded");
+
+  //|
   //| Homepage Anchor Jumps
   //|
   $("header a").bind("click", function(event){

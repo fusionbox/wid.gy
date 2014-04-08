@@ -309,34 +309,69 @@ body div.adapt > section {
   }
 }
 
+/* Message
+------------------------------------------------------*/
+
+section.message {
+  background: $orange;
+  color: white;
+  max-height: 0px;
+  overflow: hidden;
+  padding: 100px 0 10px 0;
+  position: relative;
+  top: 0px;
+  width: 100%;
+  z-index: 2;
+  @include transition(all 0.5s ease 0.5s);
+  
+  .inner {
+    font-family: $font-primary;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 0px !important;
+    text-align: center;
+  }
+}
+
+body.loaded {
+  section.message {
+    max-height: 1000px;
+    overflow: visible;
+    top: 41px;
+  }
+}
+
 /* Top
 ------------------------------------------------------*/
 
 section.top {
   background: $green url('/static/image/bg.jpg');
   height: 350px;
-  padding-top: 120px;
+  padding-top: 20px;
   position: relative;
   
   div.inner {
     padding: 20px 40px 35px 40px !important;
   }
   
-  img.pycon {
-    left: 540px;
-    position: absolute;
-    top: 210px;
-    z-index: 1000;
-  }
-  
   div.text {
     float: left;
-    margin-top: 80px;
+    margin-top: 50px;
     text-align: center;
-    width: 350px;
+    width: 400px;
+    
+    h2 {
+      font-size: 26px;
+      line-height: 33px;
+      margin: 10px 30px;
+    }
     
     a.button {
       margin: 0 5px;
+    }
+    
+    img {
+      margin: 0 10px;
     }
   }
   
@@ -344,7 +379,7 @@ section.top {
     float: right;
     height: 151px + 50px + 80px; 
 //    height: 359px; 
-    margin-top: 35px;
+    margin-top: 30px;
     overflow: hidden;
     position: relative;
     width: 416px + 50px;
@@ -807,8 +842,8 @@ footer {
     div.text {
       display: block;
       float: none;
-      margin: 99px auto 0 auto;
-      max-width: 350px;
+      margin: 50px auto 0 auto;
+      max-width: 400px;
       width: auto;
     }
     div.slideshow {
@@ -1027,6 +1062,10 @@ footer {
         }
       }
     }
+  }
+  
+  section.message {
+    padding-top: 40px;
   }
   
   section.top {
