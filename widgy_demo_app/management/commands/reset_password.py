@@ -12,5 +12,6 @@ class Command(BaseCommand):
 
         admin_user.is_superuser = True
         admin_user.is_staff = True
+        admin_user.is_active = True
         admin_user.set_password('admin')
         admin_user.save()
