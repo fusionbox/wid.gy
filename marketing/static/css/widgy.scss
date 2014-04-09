@@ -475,11 +475,17 @@ section.features {
       border: 10px solid white;
       padding: 15px;
       //height: 410px * 0.262;
-      height: 210px;
+      height: auto;
       width: 410px;
      
       + div.screenshot {
         float: right;
+      }
+      
+      p {
+        font-size: 14px;
+        margin: 3px 0 0 0 !important;
+        text-align: center;
       }
     }
   }
