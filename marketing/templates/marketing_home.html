@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width; initial-scale=1.0" />
-  <title>Widgy by Fusionbox</title>
+  <title>Widgy CMS</title>
 
   <link href='http://fonts.googleapis.com/css?family=Roboto:400italic,700italic,400,700|Lato:400,900,400italic,900italic' rel='stylesheet' type='text/css'>
   <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -42,7 +42,8 @@
         <img class="fill" src="{% static 'image/logo-fill.png' %}" alt="" data-0="top: -800%;" data-end="top: 0%" />
       </a>
       <nav>
-        <a href="#getwidgy" class="getWidgy">Get Widgy</a>
+        <a href="#getwidgy" class="getWidgy">Download</a>
+        <a href="//demo.wid.gy" class="getWidgy">Demo</a>
         <a href="#support" class="support">Support</a>
         <a href="#features" class="features">Features</a>
       </nav>
@@ -64,8 +65,8 @@
         </p>
         <h2>The very last CMS framework you will ever need, like ever.</h2>
         <p>
-          <!--a class="button  " href="//demo.wid.gy/">Demo</a-->
-          <a class="button  " href="#getwidgy">Get Widgy</a>
+          <a class="button  " href="//demo.wid.gy/">Demo</a>
+          <a class="button  " href="#getwidgy">Install</a>
         </p>
       </div>
       <div class="slideshow">
@@ -88,7 +89,7 @@
           <figcaption>Familiar</figcaption>
         </figure>
         <p>
-          You already know and love Django. We do, too. Widgy is built within your favorite Python envoronment, so you get all the support &amp; benefits from a bustling  developer community.
+          You already know and love Django. We do, too. Widgy is built on your favorite Python framework, so you already know your way around.
         </p>
       </div>
       <div class="bucket">
@@ -97,7 +98,7 @@
           <figcaption>Open</figcaption>
         </figure>
         <p>
-          Pop the hood and see what this bad boy can <em>really</em> do. Widgy is 100% open-source, so you can [insert phrase that explains whatever programmers do with open source code]!
+        Widgy is released under the Apache 2 license, so you have the flexibility you need, with added protections for your business.  <!--Make contributions by signing the CLA borrowed directly from the Django Software Foundation.-->
         </p>
       </div>
       <div class="bucket">
@@ -106,7 +107,7 @@
           <figcaption>Agile</figcaption>
         </figure>
         <p>
-          Widgy is all about creating the ideal CMS for your project. Add, remove, or modify widgets lickety-split &mdash; it's all built-in and just begging for you to fiddle with it.
+          Widgy is meant to be customized.  Add, remove, or modify widgets lickety-split &mdash; it's all built-in and just begging for you to fiddle with it.
         </p>
       </div>
       <div class="bucket">
@@ -115,7 +116,7 @@
           <figcaption>Easy</figcaption>
         </figure>
         <p>
-          Tired of explaning how to add a blog post to your 3rd HR staffer this month? Widgy is committed to a simple drag &amp; drop interface that makes updating content easy.
+          Tired of explaining how to add a blog post to your HR staff? Widgy has a simple drag &amp; drop interface that makes updating content easy and intuitive.
         </p>
       </div>
 
@@ -150,7 +151,7 @@
   <section class="features" id="features">
     <div class="inner">
       <h1><a name="features"></a>Widgy Features</h1>
-      <p>Still (somehow) not convinced that Widgy is right for your CMS? Take a look at this impressive table of features compared to the competish. If you're wondering what it can really offer, wonder no more, for the answers lie before ye...</h4>
+      <p>Still (somehow) not convinced that Widgy is the right choice for your CMS? Take a look at this impressive table of features:</h4>
       
       <div class="screenshots">
       <div class="screenshot">
@@ -160,7 +161,8 @@
         <img src="{% static 'image/feature-tree.jpg' %}" alt="" />
       </div>
       </div>
-      
+      <p><em>Drag & drop interface</em></p>
+      <p><em>Lots of default widgets</em></p>
       {% comment %}
       <table>
         <thead>
@@ -203,12 +205,11 @@
       </table>
       {% endcomment %}
 
-      <h2>Oh, Also:</h2>
 
       <ul class="features">
         <li>
-          <span class="feature">Drag &amp; Drop Editor</span>
-          <span class="description">Easily edit complex tree documents.</span>
+          <span class="feature">Not Just an HTML Editor</span>
+              <span class="description">Use Widgy to edit any heterogenous tree-structured data!</span>
         </li>
         <li>
           <span class="feature">Page Builder</span>
@@ -235,8 +236,8 @@
               <span class="description">Add Widgy to any model that you want, even add multiple widgy fields to the same model.</span>
         </li>
         <li>
-          <span class="feature">Not Just an HTML Editor</span>
-              <span class="description">Use Widgy to edit any heterogenous tree-structured data!</span>
+          <span class="feature">Drag &amp; Drop Editor</span>
+          <span class="description">Easily edit complex tree documents.</span>
         </li>
         <li>
           <span class="feature">Widgets are Django Models</span>
@@ -285,18 +286,20 @@
   <section class="support" id="support">
     <div class="inner">
       <h1><a name="support"></a>Widgy Support</h1>
-      <p>What, you mean it's not <em>completely intuitive?</em> Very well &mdash; here's how to get some help.</p>
+      <p>Here's how to get some help.</p>
       <p>
         <a href="http://docs.wid.gy/en/latest/" class="button"><i class="fa fa-file-text-o"></i> Widgy Documentation</a>
         <a href="https://groups.google.com/a/fusionbox.com/forum/#!forum/widgy" class="button"><i class="fa fa-google-plus"></i> Widgy Google Group</a>
+        </p>Please <a href="http://www.fusionbox.com/contact/">contact us</a> for paid support options.<p>
+        
       </p>
     </div>
   </section>
 
   <section class="getwidgy" id="getwidgy">
     <div class="inner">
-      <h1><a name="getwidgy"></a>Get Widgy</h1>
-      <p>What should go here? A link to Github or something? Yes? Okay, thanks team.</p>
+      <h1><a name="getwidgy"></a>Download</h1>
+      <p>You have a couple options for getting Widgy:</p>
       <p><code>$ pip install widgy</code></p>
       <p>or</p>
       <p><a href="https://github.com/fusionbox/django-widgy" class="button"><i class="fa fa-github-alt"></i> Django-Widgy on Github</a></p>
@@ -304,7 +307,7 @@
       <figure>
         <img src="{% static 'image/fusionbox.png' %}" alt="Fusionbox" />
         <figcaption>
-          <p>Widgy is brought to you by <strong>Fusionbox</strong>, a Denver Web Design/Build Firm</p>
+          <p>Widgy is brought to you by <strong>Fusionbox</strong>, a Denver Web Design/Build Firm specializing in UX and software development.</p>
           <a class="button block small orange" href="http://www.fusionbox.com/contact/">Contact Fusionbox</a>
         </figcaption>
       </figure>
