@@ -193,6 +193,7 @@ STATICFILES_DIRS = (
 
 TEMPLATE_DIRS = (
     os.path.join(WIDGY_ROOT, '..', 'demo', 'templates'),
+    os.path.join(BASE_DIR, 'widgy_demo', 'templates'),
 )
 
 # requirejs
