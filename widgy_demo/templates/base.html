@@ -1,0 +1,6 @@
+{% overextends "base.html" %}
+
+{% block body %}
+{{ block.super }}
+{% include "_google-analytics.html" %}
+{% endblock %}
