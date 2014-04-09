@@ -5,6 +5,7 @@
 
 $white10: rgba(255,255,255,0.1);
 $white30: rgba(255,255,255,0.3);
+$white50: rgba(255,255,255,0.5);
 $white70: rgba(255,255,255,0.7);
 $white90: rgba(255,255,255,0.9);
 
@@ -62,18 +63,35 @@ $width: 960px;
   &:hover {
     @include shadow($black10,0px,6px,8px);
     background: $almostwhite;
-    position: relative;
-    top: -3px;
   }
   
   &.block {
     display: block;
   }
   
+  &.small {
+    font-size: 16px;
+    line-height: 20px;
+    padding: 8px 12px;
+  }
+  
   &.big {
     font-size: 24px;
     line-height: 24px;
     padding: 18px 24px;
+  }
+  
+  &.orange {
+    @include gradient(darken($orange,5%), lighten($orange,5%));
+    @include text-shadow(darken($orange,15%),0px,-1px,0px);
+    color: white;
+    border-top: 1px solid $white70;
+    border-bottom: 1px solid $black30;
+  
+    &:hover {
+      @include shadow($black10,0px,6px,8px);
+      background: lighten($orange,10%);
+    }
   }
 }
 
@@ -280,7 +298,7 @@ header {
 /* All Sections
 ------------------------------------------------------*/
 
-body div.adapt > section, {
+body div.adapt > section {
   div.inner {
     @include clearfix;
     display: block;
@@ -291,46 +309,127 @@ body div.adapt > section, {
   }
 }
 
+/* Message
+------------------------------------------------------*/
+
+section.message {
+  @include transition(all 0.5s ease 0.5s);
+  background: $orange;
+  color: white;
+  left: 0px;
+  max-height: 0px;
+  overflow: hidden;
+  padding: 100px 0 10px 0;
+  position: relative;
+  top: 0px;
+  width: 100%;
+  z-index: 2;
+  
+  .inner {
+    font-family: $font-primary;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 0px !important;
+    text-align: center;
+  }
+}
+
+div.adapt {
+  @include transition(all 0.5s ease 0.5s);
+  left: 0px;
+  position: relative;
+  top: 0px;
+}
+
+body.loaded {
+  div.adapt {
+    top: 41px;
+  }
+  section.message {
+    max-height: 1000px;
+    overflow: visible;
+  }
+}
+
 /* Top
 ------------------------------------------------------*/
 
 section.top {
   background: $green url('/static/image/bg.jpg');
-  height: 400px;
-  padding-top: 120px;
+  height: 350px;
+  position: relative;
+  top: 0px;
+  
+  div.inner {
+    padding: 20px 40px 35px 40px !important;
+  }
   
   div.text {
     float: left;
-    margin-top: 90px;
+    margin-top: 50px;
     text-align: center;
-    width: 350px;
+    width: 400px;
+    
+    h2 {
+      font-size: 26px;
+      line-height: 33px;
+      margin: 10px 30px;
+    }
+    
+    a.button {
+      margin: 0 5px;
+    }
+    
+    img {
+      margin: 0 10px;
+    }
   }
   
   div.slideshow {
     float: right;
-    height: 359px;
-    margin-top: 10px;
+    height: 151px + 50px + 80px; 
+//    height: 359px; 
+    margin-top: 30px;
     overflow: hidden;
     position: relative;
-    width: 450px;
+    width: 416px + 50px;
+//    width: 450px; 
+    
     
     > img {
       left: 0px;
       position: absolute;
       top: 0px;
-      z-index: 2000;
+      z-index: 100;
     }
     
     div.slide {
-      padding: 16px 0 0 17px;
-      height: 235px;
+      border: 10px solid white;
+      padding: 15px;
+//      padding: 16px 0 0 17px; 
+      height: 151px;
       width: 416px;
       
       > img {
         display: block;
-        height: 235px;
+        height: auto;
         width: 416px;
       }
+      
+      > a.button {
+        left: 20%;
+        margin: 0 auto;
+        padding: 10px 0;
+        position: absolute;
+        top: 200px;
+        width: 60%;
+        z-index: 1000;
+      }
+    }
+    
+    a.button {
+      display: block;
+      margin-top: 5px;
     }
   }
 }
@@ -365,6 +464,30 @@ section.features {
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 30px;
+  }
+  
+  div.screenshots {
+    @include default;
+    margin: 0 0 30px 0;
+    
+    div.screenshot {
+      @include default;
+      border: 10px solid white;
+      padding: 15px;
+      //height: 410px * 0.262;
+      height: auto;
+      width: 410px;
+     
+      + div.screenshot {
+        float: right;
+      }
+      
+      p {
+        font-size: 14px;
+        margin: 3px 0 0 0 !important;
+        text-align: center;
+      }
+    }
   }
   
   ul.features {
@@ -433,6 +556,25 @@ section.features {
 
 
 
+/* Clients
+------------------------------------------------------*/
+
+section.clients {
+  background: $reallylightgrey;
+  
+  span.client {
+    display: inline;
+    float: left;
+    margin: 0 0 0 5%;
+    width: 16%;
+    
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+
 /* Community
 ------------------------------------------------------*/
 
@@ -455,6 +597,30 @@ section.support {
 
 section.getwidgy {
   background: $reallylightgrey;
+  
+  .inner {
+    padding-right: $width / 2 !important;
+    position: relative;
+    width: $width / 2;
+  }
+  
+  figure {
+    background: transparent;
+    border: 10px solid $lightgrey;
+    padding: 20px;
+    position: absolute;
+    text-align: center;
+    top: 44px;
+    right: 0px;
+    width: 240px;
+    
+    img {
+      display: block;
+      height: auto;
+      margin: 0 auto 10px auto;
+      max-width: 200px;
+    }
+  }
 }
 
 /* Buckets
@@ -661,7 +827,7 @@ footer {
 /* Responsive: All Responsive Designs
 ------------------------------------------------------*/
 
-@media screen and (max-width: 959px) {  
+@media screen and (max-width: 1039px) {  
   
   .wrapper {
     margin: 0;
@@ -687,17 +853,51 @@ footer {
 /* Responsive
 ------------------------------------------------------*/
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1039px) {
   section.top {
     div.text {
       display: block;
       float: none;
-      margin: 99px auto 0 auto;
-      max-width: 350px;
+      margin: 50px auto 0 auto;
+      max-width: 400px;
       width: auto;
     }
     div.slideshow {
       display: none;
+    }
+  }
+  
+  section.clients {
+    span.client {
+      width: 18%;
+      margin: 0 1%;
+      
+      img {
+        display: block;
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+  
+  section.features {
+    div.screenshots {
+      div.screenshot {
+        height: auto;
+        width: 40%;
+        
+        img {
+          height: auto;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+  
+  section.getwidgy {
+    .inner {
+      padding-right: 40% !important;
+      width: 50%;
     }
   }
 }
@@ -737,7 +937,44 @@ footer {
     }
   }
   
+  section.clients {
+    span.client {
+      width: 31%;
+      margin: 0 1%;
+      text-align: center;
+      
+      img {
+        display: block;
+        height: auto;
+        margin: 0 auto;
+        max-width: 100%;
+        width: auto;
+      }
+    }
+  }
+  
   section.features {
+    div.screenshots {
+      margin: 0;
+      
+      div.screenshot {
+        @include clearfix;
+        float: none !important;
+        display: block;
+        height: auto;
+        margin: 0 0 15px 0;
+        text-align: center;
+        width: auto;
+        
+        img {
+          display: block;
+          height: auto;
+          margin: 0 auto;
+          max-width: 100%;
+        }
+      }
+    }
+    
     ul.features {
       li {
         padding-left: 10%;
@@ -779,6 +1016,26 @@ footer {
       .comp2 {
         display: none !important;
       }
+    }
+  }
+  
+  a.button {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  section.getwidgy {
+    .inner {
+      padding-right: 40px !important;
+      width: auto;
+    }
+    
+    figure {
+      clear: both;
+      display: block;
+      margin-top: 30px;
+      position: static;
+      width: auto;
     }
   }
 }
@@ -823,8 +1080,13 @@ footer {
     }
   }
   
+  section.message {
+    padding-top: 40px;
+  }
+  
   section.top {
-    padding: 0 0 50px 0;
+    padding: 0 0 30px 0;
+    height: auto;
     
     div.text {
       
@@ -833,19 +1095,61 @@ footer {
         float: none;
         margin: 0 0 10px 0;
         font-size: 19px;
-      }
-      
+      } 
+    }
+    
+    img.pycon {
+      left: 35%;
+      top: 310px;
     }
   }
   
   section.intro {
     div.bucket {
       clear: both;
+      padding: 0;
       width: 100%;
     }
   }
   
+  section.clients {
+    span.client {
+      width: 48%;
+      margin: 0 1%;
+      text-align: center;
+      
+      img {
+        display: block;
+        height: auto;
+        margin: 0 auto;
+        max-width: 100%;
+        width: auto;
+      }
+    }
+  }
+  
   section.features {
+    div.screenshots {
+      margin: 0;
+      
+      div.screenshot {
+        @include clearfix;
+        float: none !important;
+        display: block;
+        height: auto;
+        margin: 0 0 15px 0;
+        text-align: center;
+        width: auto;
+        
+        img {
+          display: block;
+          height: auto;
+          margin: 0 auto;
+          max-width: 100%;
+        }
+      }
+    }
+    
     ul.features {
       li {
         padding-left: 10%;
@@ -875,6 +1179,26 @@ footer {
       .widgy, .comp1, .comp2 {
         display: none !important;
       }
+    }
+  }
+  
+  a.button {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  section.getwidgy {
+    .inner {
+      padding-right: 40px !important;
+      width: auto;
+    }
+    
+    figure {
+      clear: both;
+      display: block;
+      margin-top: 30px;
+      position: static;
+      width: auto;
     }
   }
 }

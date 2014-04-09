@@ -131,6 +131,11 @@ USE_I18N = False
 USE_L10N = False
 USE_TZ = True
 
+# Because Mezzanine doesn't respect the USE_L10N flag.
+LANGUAGES = (
+    ('en', 'English'),
+)
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
@@ -161,7 +166,7 @@ TESTING = False
 GRAPPELLI_INSTALLED = True
 SITE_ID = 1
 
-ADD_MENU_ORDER = (
+ADD_PAGE_ORDER = (
     'widgy_mezzanine.WidgyPage',
 )
 
@@ -188,6 +193,7 @@ STATICFILES_DIRS = (
 
 TEMPLATE_DIRS = (
     os.path.join(WIDGY_ROOT, '..', 'demo', 'templates'),
+    os.path.join(BASE_DIR, 'widgy_demo', 'templates'),
 )
 
 # requirejs
