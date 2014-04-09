@@ -22,3 +22,30 @@ from django.contrib.comments.models import Comment
 
 admin.site.unregister(Setting)
 admin.site.unregister(Comment)
+
+
+# Patch the Page get_absolute_url
+from mezzanine.pages.models import Page
+from widgy.contrib.widgy_mezzanine import get_widgypage_model
+from subdomains.utils import reverse
+try:
+    from urllib.parse import urljoin
+except ImportError:     # Python 2
+    from urlparse import urljoin
+
+
+WidgyPage = get_widgypage_model()
+
+
+def page_get_absolute_url(self):
+    slug = self.slug
+    if self.content_model == "link":
+        # Ensure the URL is absolute.
+        slug = urljoin('/', slug)
+        return slug
+    if slug == "/":
+        return reverse("home", subdomain='demo')
+    else:
+        return reverse("page", subdomain='demo', kwargs={"slug": slug})
+
+WidgyPage.get_absolute_url = Page.get_absolute_url = page_get_absolute_url
