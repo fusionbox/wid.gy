@@ -4,3 +4,4 @@ media/
 *.pyc
 backups/
 db.sqlite3
+settings_local.py
