@@ -30,3 +30,7 @@ CACHES = {
 TEMPLATE_LOADERS = (
     ('django.template.loaders.cached.Loader', TEMPLATE_LOADERS),
 )
+
+REQUIRE_BUILD_PROFILE = 'widgy.build.js'
+REQUIRE_BASE_URL = 'widgy/js'
+STATICFILES_STORAGE = 'require.storage.OptimizedStaticFilesStorage'

@@ -17,3 +17,8 @@ DATABASES = {
 FORCE_SCRIPT_NAME = ''
 
 SENTRY_DSN = 'https://16443522c9664b9d985a32633bc190f0:1f4bcdd5a08b412c846e3a2d9f01bdd3@sentry.fusionbox.com/44'
+
+
+REQUIRE_BUILD_PROFILE = 'widgy.build.js'
+REQUIRE_BASE_URL = 'widgy/js'
+STATICFILES_STORAGE = 'require.storage.OptimizedStaticFilesStorage'
