@@ -131,6 +131,11 @@ USE_I18N = False
 USE_L10N = False
 USE_TZ = True
 
+# Because Mezzanine doesn't respect the USE_L10N flag.
+LANGUAGES = (
+    ('en', 'English'),
+)
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
