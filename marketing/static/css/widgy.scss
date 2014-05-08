@@ -359,7 +359,7 @@ body.loaded {
 section.top {
   background: $green url('/static/image/bg.jpg');
   height: 350px;
-  padding-top: 90px;
+  padding-top: 130px; /* Remove this if there's a message to be displayed */
   position: relative;
   top: 0px;
   
