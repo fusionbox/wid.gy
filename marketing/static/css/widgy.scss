@@ -342,6 +342,7 @@ div.adapt {
 }
 
 body.loaded {
+  /*
   div.adapt {
     top: 41px;
   }
@@ -349,6 +350,7 @@ body.loaded {
     max-height: 1000px;
     overflow: visible;
   }
+  */
 }
 
 /* Top
@@ -357,6 +359,7 @@ body.loaded {
 section.top {
   background: $green url('/static/image/bg.jpg');
   height: 350px;
+  padding-top: 90px;
   position: relative;
   top: 0px;
   
