@@ -1,16 +1,5 @@
-"""
-Django settings for widgy_demo project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.6/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.6/ref/settings/
-"""
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import imp
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -32,84 +21,39 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
 
-    'mezzanine.boot',
-    'mezzanine.conf',
-    'mezzanine.core',
-    'mezzanine.generic',
-    'mezzanine.pages',
-    'django.contrib.comments',
-    'filebrowser_safe',
-    'grappelli_safe',
-
-    'widgy',
-    'widgy.contrib.page_builder',
-    'widgy.contrib.form_builder',
-    'widgy.contrib.widgy_mezzanine',
-    # 'widgy.contrib.urlconf_include',
-    'widgy.contrib.review_queue',
-
-    'django.contrib.admin',
-
-    'filer',
-    'easy_thumbnails',
     'compressor',
     'scss',
-    'sorl.thumbnail',
     'south',
     'debug_toolbar',
     'django_extensions',
-    'argonauts',
     'raven.contrib.django',
 
     'backupdb',
 
-    'demo.demo_widgets',
-    'widgy_demo_app',
     'marketing',
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'subdomains.middleware.SubdomainURLRoutingMiddleware',
     'raven.contrib.django.middleware.Sentry404CatchMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-    'mezzanine.core.request.CurrentRequestMiddleware',
-    'mezzanine.core.middleware.AdminLoginInterfaceSelectorMiddleware',
-    'mezzanine.pages.middleware.PageMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.contrib.auth.context_processors.auth",
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.debug",
     "django.core.context_processors.i18n",
     "django.core.context_processors.static",
     "django.core.context_processors.media",
     "django.core.context_processors.request",
-    "mezzanine.conf.context_processors.settings",
 )
 
-ROOT_URLCONF = 'widgy_demo.urls'
+ROOT_URLCONF = 'marketing.urls'
 
-SUBDOMAIN_URLCONFS = {
-    None: 'marketing.urls',
-    'www': 'marketing.urls',
-    'demo': 'widgy_demo.urls',
-}
-
-WSGI_APPLICATION = 'widgy_demo.wsgi.application'
+WSGI_APPLICATION = 'marketing.wsgi.application'
 
 
 # Database
@@ -157,50 +101,11 @@ COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_pyscss.compressor.DjangoScssFilter'),
 )
 
-# Mezzanine
-
-PACKAGE_NAME_FILEBROWSER = "filebrowser_safe"
-PACKAGE_NAME_GRAPPELLI = "grappelli_safe"
-ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
-TESTING = False
-GRAPPELLI_INSTALLED = True
-SITE_ID = 1
-
-ADD_PAGE_ORDER = (
-    'widgy_mezzanine.WidgyPage',
-)
-
-ADMIN_MENU_ORDER = [
-    ('Widgy', (
-        'pages.Page',
-        'page_builder.Callout',
-        'form_builder.Form',
-        ('Review queue', 'review_queue.ReviewedVersionCommit'),
-        'filer.Folder',
-    )),
-]
-
-# Widgy
-WIDGY_ROOT = imp.find_module('widgy')[1]
-WIDGY_MEZZANINE_SITE = 'widgy_demo.widgy_site.site'
-DAISYDIFF_JAR_PATH = os.path.join(WIDGY_ROOT, '..', 'bin', 'daisydiff', 'daisydiff.jar')
-
-
-# Copy stuff over from django-widgy/demo
-STATICFILES_DIRS = (
-    os.path.join(WIDGY_ROOT, '..', 'demo', 'public'),
-)
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'widgy_demo', 'templates'),
-    os.path.join(WIDGY_ROOT, '..', 'demo', 'templates'),
+    os.path.join(BASE_DIR, 'marketing', 'templates'),
 )
 
-# requirejs
-
-# REQUIRE_BUILD_PROFILE = 'widgy.build.js'
-# REQUIRE_BASE_URL = 'widgy/js'
-# STATICFILES_STORAGE = 'require.storage.OptimizedStaticFilesStorage'
 
 LOGGING = {
     'version': 1,
