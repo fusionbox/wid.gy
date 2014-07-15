@@ -46,7 +46,7 @@
       </a>
       <nav>
         <a href="#getwidgy" class="getWidgy">Download</a>
-        <a href="//demo.{{ request.get_host }}/create-demo-site/" class="getWidgy">Demo</a>
+        <a href="{{ demo_url }}" class="getWidgy">Demo</a>
         <a href="#support" class="support">Support</a>
         <a href="#features" class="features">Features</a>
       </nav>
@@ -70,7 +70,7 @@
         </p>
         <h2>The very last CMS framework you will ever need, like ever.</h2>
         <p>
-          <a class="button" href="//demo.{{ request.get_host }}/create-demo-site/">Demo</a>
+          <a class="button" href="{{ demo_url }}">Demo</a>
           <a class="button" href="#getwidgy">Install</a>
         </p>
       </div>
@@ -78,7 +78,7 @@
         <div class="slide">
           <img src="{% static 'image/screenshot-small.jpg' %}" alt="Widgy Screenshot" />
         </div>
-        <a class="button orange" href="//demo.{{ request.get_host }}/create-demo-site/">Try the Demo</a>
+        <a class="button orange" href="{{ demo_url }}">Try the Demo</a>
         <!--img src="{% static 'image/mac2.png' %}" alt="" /-->
       </div>
     </div>
