@@ -332,6 +332,10 @@ section.message {
     padding: 0px !important;
     text-align: center;
   }
+  
+  + section.top {
+    padding-top: 0 !important;
+  }
 }
 
 div.adapt {
@@ -342,7 +346,6 @@ div.adapt {
 }
 
 body.loaded {
-  /*
   div.adapt {
     top: 41px;
   }
@@ -350,7 +353,6 @@ body.loaded {
     max-height: 1000px;
     overflow: visible;
   }
-  */
 }
 
 /* Top
@@ -359,7 +361,7 @@ body.loaded {
 section.top {
   background: $green url('/static/image/bg.jpg');
   height: 350px;
-  padding-top: 130px; /* Remove this if there's a message to be displayed */
+  padding-top: 130px;
   position: relative;
   top: 0px;
   
@@ -613,7 +615,7 @@ section.getwidgy {
     padding: 20px;
     position: absolute;
     text-align: center;
-    top: 44px;
+    top: 32px;
     right: 0px;
     width: 240px;
     
@@ -622,6 +624,14 @@ section.getwidgy {
       height: auto;
       margin: 0 auto 10px auto;
       max-width: 200px;
+    }
+    
+    p:first-child {
+      margin: 0 !important;
+    }
+    
+    p:last-child {
+      margin: 0 !important;
     }
   }
 }

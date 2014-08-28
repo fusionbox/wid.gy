@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width; initial-scale=1.0" />
-  <title>Open Source Python/Django CMS Framework from Fusionbox | Widgy</title>
-  <meta name="description" content="Widgy is a Python/Django based CMS framework with a drag &amp; drop interface to make it as easy as possible to manage your website's content. Play around in the demo to check it out.">
+  <title>Open Source Python/Django CMS Framework | Widgy</title>
+  <meta name="description" content="Widgy is a Python/Django CMS framework with a drag &amp; drop interface to make it as easy as possible to manage your website's content.">
   
 
   <link href='http://fonts.googleapis.com/css?family=Roboto:400italic,700italic,400,700|Lato:400,900,400italic,900italic' rel='stylesheet' type='text/css'>
@@ -53,13 +53,11 @@
     </div>
   </header>
   
-  {% comment %}
   <section class="message">
     <div class="inner">
       Visit Us at DjangoCon!!
     </div>
   </section>
-  {% endcomment %}
 
   <section class="top" id="top">
     <div class="inner">
@@ -68,7 +66,7 @@
           <img src="{% static 'image/python.png' %}" alt="Python" />
           <img src="{% static 'image/django.png' %}" alt="Django" />
         </p>
-        <h2>The very last CMS framework you will ever need, like ever.</h2>
+        <h2>A Django CMS to fit the particular needs of perfectionists.</h2>
         <p>
           <a class="button" href="{{ demo_url }}">Demo</a>
           <a class="button" href="#getwidgy">Install</a>
@@ -121,13 +119,15 @@
           <figcaption>Easy</figcaption>
         </figure>
         <p>
-          Tired of explaining how to add a blog post to your HR staff? Widgy has a simple drag &amp; drop interface that makes updating content easy and intuitive.
+          Widgy has a simple drag &amp; drop interface that makes updating content easy and intuitive.
         </p>
       </div>
 
     </div>
   </section>
 
+
+  {% comment %}
   <section class="clients" id="clients">
     <div class="inner">
       <h1><a name="clients"></a>Sites Using Widgy</h1>
@@ -152,12 +152,12 @@
       
     </div>
   </section>
+  {% endcomment %}
+
 
   <section class="features" id="features">
     <div class="inner">
       <h1><a name="features"></a>Widgy Features</h1>
-      <p>Still (somehow) not convinced that Widgy is the right choice for your CMS? Take a look at this impressive list of features:</h4>
-      
       <div class="screenshots">
         <div class="screenshot">
           <img src="{% static 'image/feature-drag-drop.jpg' %}" alt="" />
@@ -168,48 +168,6 @@
           <p><em>Lots of Default Widgets</em></p>
         </div>
       </div>
-      {% comment %}
-      <table>
-        <thead>
-          <tr>
-            <th class="feature">Features</th>
-            <th class="widgy"><span class="bump"></span><div class="logo"><img class="logo" src="{% static 'image/logo-white.png' %}" alt="WIDGY"></div></th>
-            <th class="comp1">Ruby on Rails</th>
-            <th class="comp2">Wordpress</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="feature">
-              <span class="feature">Astronaut Ponies</span>
-              <span class="description">Because space needs more ponies, and Widgy aims to do just that.</span>
-            </td>
-            <td class="widgy"><i class="fa fa-thumbs-o-up"></i></td>
-            <td class="comp1"><i class="fa fa-thumbs-o-down"></i></td>
-            <td class="comp2"><i class="fa fa-thumbs-o-down"></i></td>
-          </tr>
-          <tr>
-            <td class="feature">
-              <span class="feature">Easier Time Travel</span>
-              <span class="description">Improves on Dr. Brown's classic Flux Capacitor to decrease required leap velocity to a mere 8mph.</span>
-            </td>
-            <td class="widgy"><i class="fa fa-thumbs-o-up"></i></td>
-            <td class="comp1"><i class="fa fa-thumbs-o-down"></i></td>
-            <td class="comp2"><i class="fa fa-thumbs-o-down"></i></td>
-          </tr>
-          <tr>
-            <td class="feature">
-              <span class="feature">Wish Granting</span>
-              <span class="description">Well, just one, and only if you get the quarter into Zoltar's mouth.</span>
-            </td>
-            <td class="widgy"><i class="fa fa-thumbs-o-up"></i><span class="bump"></span></td>
-            <td class="comp1"><i class="fa fa-thumbs-o-down"></i></td>
-            <td class="comp2"><i class="fa fa-thumbs-o-down"></i></td>
-          </tr>
-        </tbody>
-      </table>
-      {% endcomment %}
-
 
       <ul class="features">
         <li>
@@ -310,13 +268,11 @@
       <p><a href="https://github.com/fusionbox/django-widgy" class="button"><i class="fa fa-github-alt"></i> django-widgy on Github</a></p>
       
       <figure>
+        <p><a href="http://www.fusionbox.com/"></a>Sponsored by</p>
         <img src="{% static 'image/fusionbox.png' %}" alt="Fusionbox" />
-        <figcaption>
-          <p>Widgy is brought to you by <strong>Fusionbox</strong>, a Denver Web Design/Build Firm specializing in UX and software development.</p>
-          <a class="button block small orange" href="http://www.fusionbox.com/contact/">Contact Fusionbox</a>
-        </figcaption>
+        <p>Widgy is brought to you by <strong>Fusionbox</strong>, a Denver digital agency with a heart for Python.</p>
+        <p><a class="button block small orange" href="http://www.fusionbox.com/contact/">Contact Fusionbox</a></p>
       </figure>
-      
     </div>
   </section>
 
