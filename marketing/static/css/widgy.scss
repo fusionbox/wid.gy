@@ -20,7 +20,7 @@ $lightgrey: #dcdcdc;
 $reallylightgrey: #ededed;
 $almostwhite: #f4f4f4;
 
-$green: #78e3c6;
+$green: #89D463;
 $blue: #243854;
 $darkblue: darken($blue,10%);
 $orange: #f26304;
@@ -359,7 +359,7 @@ body.loaded {
 ------------------------------------------------------*/
 
 section.top {
-  background: $green url('/static/image/bg.jpg');
+  background: $green url('/static/image/bg_green.jpg');
   height: 350px;
   padding-top: 130px;
   position: relative;
@@ -702,7 +702,7 @@ table {
       }
       
       &.widgy {
-        background: $green url('/static/image/bg.jpg');
+        background: $green url('/static/image/bg_green.jpg');
         position: relative;
         text-align: center;
         
@@ -716,7 +716,7 @@ table {
         
         span.bump {
           @include rounded(5px 5px 0px 0px);
-          background: $green url('/static/image/bg.jpg');
+          background: $green url('/static/image/bg_green.jpg');
           position: absolute;
           height: 10px;
           left: 0px;
@@ -735,13 +735,13 @@ table {
       text-align: center;
       
       &.widgy {
-        background: $green url('/static/image/bg.jpg');
+        background: $green url('/static/image/bg_green.jpg');
         border-bottom: 1px solid darken($green,15%);
         position: relative;
         
         span.bump {
           @include rounded(0px 0px 5px 5px);
-          background: $green url('/static/image/bg.jpg');
+          background: $green url('/static/image/bg_green.jpg');
           position: absolute;
           height: 10px;
           left: 0px;
