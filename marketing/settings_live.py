@@ -4,9 +4,11 @@ ALLOWED_HOSTS = ['wid.gy', 'www.wid.gy']
 
 DEBUG = False
 
+DATABASES = {'default': dj_database_url.config()}
+DATABASES['default']['ATOMIC_REQUESTS'] = True
 
-TEMPLATE_LOADERS = (
-    ('django.template.loaders.cached.Loader', TEMPLATE_LOADERS),
+TEMPLATES[0]['OPTIONS']['loaders'] = (
+    ('django.template.loaders.cached.Loader', TEMPLATES[0]['OPTIONS']['loaders']),
 )
 
 

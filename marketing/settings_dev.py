@@ -1,18 +1,10 @@
 from .settings import *
 
-TEMPLATE_DEBUG = DEBUG = True
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'widgy.dev.fusionbox.com',
 ]
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'widgy_demo',
-        'USER': 'widgy_demo_user',
-    }
-}
 
 FORCE_SCRIPT_NAME = ''
 
