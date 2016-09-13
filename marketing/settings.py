@@ -20,7 +20,6 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
-    'backupdb',
     'compressor',
     'django_extensions',
     'raven.contrib.django',
