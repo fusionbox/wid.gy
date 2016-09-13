@@ -1,19 +1,16 @@
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
+PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'wy8(9zq6$g1u1nno-$a-1ga=*pykm@x%o$-94bs5syu*fw4c2)'
+DEFAULT_SECRET_KEY = 'wy8(9zq6$g1u1nno-$a-1ga=*pykm@x%o$-94bs5syu*fw4c2)'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', DEFAULT_SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -23,14 +20,11 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
+    'backupdb',
     'compressor',
-    'scss',
-    'south',
-    'debug_toolbar',
     'django_extensions',
     'raven.contrib.django',
-
-    'backupdb',
+    'scss',
 
     'marketing',
 )
@@ -42,29 +36,16 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.contrib.messages.context_processors.messages",
-    "django.core.context_processors.debug",
-    "django.core.context_processors.i18n",
-    "django.core.context_processors.static",
-    "django.core.context_processors.media",
-    "django.core.context_processors.request",
-)
-
 ROOT_URLCONF = 'marketing.urls'
 
 WSGI_APPLICATION = 'marketing.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+DATABASES = {'default': dj_database_url.config(default='sqlite:///sqlite_database')}
+DATABASES['default']['ATOMIC_REQUESTS'] = True
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
@@ -83,11 +64,11 @@ LANGUAGES = (
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(PROJECT_PATH, '..', 'media')
 MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(PROJECT_PATH, '..', "static")
 
 STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
@@ -102,41 +83,65 @@ COMPRESS_PRECOMPILERS = (
 )
 
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'marketing', 'templates'),
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(PROJECT_PATH, 'templates'),
+        ],
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
+            ],
+            'debug': DEBUG,
+            'loaders': [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+            ],
+        },
+    },
+]
 
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': True,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
+    'disable_existing_loggers': False,
     'root': {
-        'level': 'WARNING',
-        'handlers': ['sentry'],
+        'level': 'DEBUG',
+        'handlers': ['sentry', 'console'],
     },
     'formatters': {
         'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s',
         },
     },
     'handlers': {
-        'sentry': {
-            'level': 'INFO',
-            'class': 'raven.contrib.django.handlers.SentryHandler',
-            'filters': ['require_debug_false'],
-        },
         'console': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.StreamHandler',
-            'formatter': 'verbose'
+            'formatter': 'verbose',
+        },
+        'sentry': {
+            'level': 'WARNING',
+            'class': 'raven.contrib.django.handlers.SentryHandler',
         },
     },
     'loggers': {
+        'django': {
+            'handlers': ['console', 'sentry'],
+            'level': 'DEBUG',
+        },
+        'werkzeug': {
+            'level': 'DEBUG',
+            'handlers': ['console'],
+            'propagate': False,
+        },
         'django.db.backends': {
             'level': 'ERROR',
             'handlers': ['console'],
@@ -156,8 +161,3 @@ LOGGING = {
 }
 
 SENTRY_DSN = None
-
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-)
