@@ -1,14 +1,25 @@
 from fabric.api import env, roles
 
-from fusionbox.fabric import fb_env
-from fusionbox.fabric.django import stage, deploy
+from fusionbox.fabric.django.new import stage, deploy
 
-env.roledefs['live'] = ['fusionbox@demo.wid.gy']
 
-fb_env.virtualenv = 'widgy_marketing'
-fb_env.project_name = 'wid'
-fb_env.tld = '.gy'
-fb_env.vassal = 'widgy_marketing'
+def dev():
+    env.project_name = 'wid.gy.dev'
+    env.vassal_name = 'wid_gy_dev'
+
+    return ['fusionbox@widgy.dev.fusionbox.com']
+
+
+def live():
+    env.project_name = 'wid.gy'
+    env.vassal_name = 'wid_gy'
+
+    return ['fusionbox@wid.gy']
+
+
+env.roledefs['dev'] = dev
+env.roledefs['live'] = live
 
 stage = roles('dev')(stage)
 deploy = roles('live')(deploy)
+
