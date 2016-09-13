@@ -6,15 +6,14 @@
 #
 dj-database-url==0.4.1
 django-appconf==1.0.2
-django-backupdb==0.5.5
 django-compressor==2.1
 django-dotenv==1.2
 django-extensions==1.7.4
 django-pyscss==1.0.1
-Django==1.10.1            # via django-backupdb, django-pyscss
+Django==1.10.1            # via django-pyscss
 ecdsa==0.11               # via paramiko
 Fabric==1.9.0             # via fusionbox-fabric-helpers
-fusionbox-fabric-helpers==0.5.0
+fusionbox-fabric-helpers==0.6.1
 paramiko==1.14.0          # via fabric
 psycopg2==2.5.3
 pycrypto==2.6.1           # via paramiko
