@@ -10,7 +10,7 @@ django-compressor==2.1
 django-dotenv==1.2
 django-extensions==1.7.4
 django-pyscss==1.0.1
-django==1.10.4
+django==1.11.26
 ecdsa==0.11               # via paramiko
 fabric==1.9.0
 fusionbox-fabric-helpers==0.6.1
@@ -19,6 +19,7 @@ psycopg2==2.8.4
 pycrypto==2.6.1           # via paramiko
 pyscss==1.2.0.post3       # via django-pyscss
 python-memcached==1.53
+pytz==2019.3              # via django
 raven==5.0.0
 rcssmin==1.0.6            # via django-compressor
 rjsmin==1.0.12            # via django-compressor
